@@ -5,12 +5,14 @@
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "^4.0.0"
+    "react-scripts": "^4.0.0",
+    "yarn": "^1.22.19"
   },
   "scripts": {
     "start": "react-scripts start",
     "start-all-interfaces": "HOST=0.0.0.0 react-scripts start",
-    "build": "npm i && react-scripts build",
+    "build": "react-scripts build",
+    "postbuild": "mv build ./src/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
