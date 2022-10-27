@@ -1,20 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
 import './App.css';
+import Navigation from './components/Navigation/Navigation'; 
+import NoPageFound from './components/NoPageFound';
+import Home from './components/Home/Home.js';
+import Mail from './components/Mail';
+import Portfolio from './components/Portfolio';
 
-class App extends Component {
-  render() {
+export default function App () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello from escurriola.ch!
-          </p>
-        </header>
-      </div>
-    );
-  }
-}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path="mail" element={<Mail />} />
+            <Route path="portfolio" element={<Portfolio />} />
+            <Route path="*" element={<NoPageFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter> 
+    )
+};
 
-export default App;
