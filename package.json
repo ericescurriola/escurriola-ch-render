@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "react-router-dom": "^6.26.1",
-    "shelljs": "^0.8.5",
-    "yarn": "^1.22.22"
+    "shelljs": "^0.8.5"
   }
 }
