@@ -37,7 +37,7 @@ export default function Home() {
     <>
       {loading && (
         <div className="loading-screen">
-          <p>Loading...</p>
+          <p>Loading</p><p class="loader-dots">...</p>
         </div>
       )}
       <Canvas camera={{ position: [2, 1, 3], near: 1 }}>
