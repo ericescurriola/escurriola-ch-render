@@ -3,8 +3,8 @@ import { Canvas } from '@react-three/fiber'
 import { useGLTF, OrbitControls, Environment, Html } from '@react-three/drei'
 import './Home.css'
 
-function Model({ url }) {
-  const { scene } = useGLTF(url)
+function Model({ url, setLoading }) {
+  const { scene } = useGLTF(url, true, undefined, (e) => setLoading(false)) // Mark loading as done when model loads
   const [cache, setCache] = useState({})
 
   if (!cache[url]) {
@@ -26,19 +26,24 @@ function Model({ url }) {
       [url]: <primitive object={scene}>{annotations}</primitive>
     })
   }
+
   return cache[url]
 }
 
 export default function Home() {
+  const [loading, setLoading] = useState(true) // Track loading state
 
   return (
     <>
+      {loading && (
+        <div className="loading-screen">
+          <p>Loading...</p>
+        </div>
+      )}
       <Canvas camera={{ position: [2, 1, 3], near: 1 }}>
-        <Environment
-          preset="forest"
-        />
+        <Environment preset="sunset" />
         <group>
-          <Model url="./models/porsche_992_gt3_r_rennsport.glb" />
+          <Model url="./models/porsche_992_gt3_r_rennsport.glb" setLoading={setLoading} />
         </group>
         <OrbitControls />
       </Canvas>
