@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, OrbitControls, Environment, Html } from '@react-three/drei'
-import './Home.css'
+import './AlienAir.css'
 
 function Model({ url, setLoading }) {
   const { scene } = useGLTF(url, true, undefined, (e) => setLoading(false)) // Mark loading as done when model loads
@@ -28,7 +28,7 @@ function Model({ url, setLoading }) {
   return cache[url]
 }
 
-export default function Home() {
+export default function AlienAir() {
   const [loading, setLoading] = useState(true) // Track loading state
 
   return (
@@ -39,10 +39,10 @@ export default function Home() {
         </div>
       )}
       {/* position: [x, y, z] values for initial camera view  */}
-      <Canvas camera={{ position: [2, 1, 3], near: 1 }}>
+      <Canvas camera={{ position: [1, 1, 20], near: 1 }}>
         <Environment preset="sunset" />
         <group>
-          <Model url="./models/porsche_992_gt3_r_rennsport.glb" setLoading={setLoading} />
+          <Model url="./models/AlienAir_v5.gltf" setLoading={setLoading} />
         </group>
         <OrbitControls />
       </Canvas>
