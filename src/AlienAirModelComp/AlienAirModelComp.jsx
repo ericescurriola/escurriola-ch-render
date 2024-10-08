@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, OrbitControls, Environment, Html } from '@react-three/drei'
-import './AlienAir.css'
+import './AlienAirModelComp.css'
 
 function Model({ url, setLoading }) {
   const { scene } = useGLTF(url, true, undefined, (e) => setLoading(false)) // Mark loading as done when model loads
@@ -28,7 +28,7 @@ function Model({ url, setLoading }) {
   return cache[url]
 }
 
-export default function AlienAir() {
+export default function AlienAirModelComp() {
   const [loading, setLoading] = useState(true) // Track loading state
 
   return (

@@ -6,14 +6,14 @@ import {
 } from "react-router-dom";
 import './styles.css';
 import Home from './Home/Home';
-import AlienAir from './AlienAir/AlienAir';
+import AlienAirModelComp from './AlienAirModelComp/AlienAirModelComp';
 
 export default function App () {
     return (
       <Router>
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/alienair" element={<AlienAir />} />
+            <Route path="/alienairmodel" element={<AlienAirModelComp />} />
             {/* 404 route - any undefined path will redirect to Home */}
             <Route path="*" element={<Home />} />
         </Routes>
