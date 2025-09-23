@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, OrbitControls, Environment, Html } from '@react-three/drei'
 import './Home.css'
+import SketchfabFireblade from '../SketchfabFireblade/SketchfabFireblade'
 
 function Model({ url, setLoading }) {
   const { scene } = useGLTF(url, true, undefined, (e) => setLoading(false)) // Mark loading as done when model loads
@@ -33,19 +34,7 @@ export default function Home() {
 
   return (
     <>
-      {loading && (
-        <div className="loading-screen">
-          <p>Loading</p><p className="loader-dots">...</p>
-        </div>
-      )}
-      {/* position: [x, y, z] values for initial camera view  */}
-      <Canvas camera={{ position: [2, 1, 3], near: 1 }}>
-        <Environment preset="sunset" />
-        <group>
-          <Model url="./models/porsche_992_gt3_r_rennsport.glb" setLoading={setLoading} />
-        </group>
-        <OrbitControls />
-      </Canvas>
+      <SketchfabFireblade />
     </>
   )
 }
