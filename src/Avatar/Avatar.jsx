@@ -30,7 +30,6 @@ function Model({ url }) {
 }
 
 export default function Avatar() {
-
   return (
     <>
       <Canvas camera={{ position: [2, 1, 3], near: 1 }}>
@@ -38,7 +37,7 @@ export default function Avatar() {
           preset="forest"
         />
         <group>
-          <Model url="./models/porsche_992_gt3_r_rennsport.glb" />
+          <Model url="./models/avatar.glb" />
         </group>
         <OrbitControls />
       </Canvas>
